@@ -1,0 +1,64 @@
+<!-- @dsCard group="Foundations" name="Tokens and type" subtitle="Palette, scale and radii, straight from standards/tokens.css" height="360" -->
+<!-- @dsNotes
+The **only** place raw values are allowed. Every component reads these tokens, never a hex.
+
+- Neutrals are chosen, not inherited. Bias them slightly toward the accent hue.
+- Define the complete light palette on bare `:root`, then redefine **only tokens** under
+  `@media (prefers-color-scheme: dark)` guarded with `:root:not([data-theme="light"])`,
+  and again under `:root[data-theme="dark"]`.
+- Numbers that change get `font-variant-numeric: tabular-nums`.
+-->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Design system: foundations</title>
+<link rel="stylesheet" href="../standards/tokens.css">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--f-sans);padding:24px;font-size:15px}
+  h2{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
+     font-family:var(--f-mono);margin:0 0 10px}
+  section{margin-bottom:26px}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .sw{width:92px;border:1px solid var(--border);border-radius:var(--r-btn);overflow:hidden;background:var(--surface)}
+  .sw i{display:block;height:40px}
+  .sw span{display:block;padding:5px 7px;font-family:var(--f-mono);font-size:10px;color:var(--muted)}
+  .scale div{margin-bottom:4px;line-height:1.2}
+  .t-d{font-size:34px;font-weight:800;letter-spacing:-.02em}
+  .t-1{font-size:24px;font-weight:700;letter-spacing:-.015em}
+  .t-2{font-size:18px;font-weight:650}
+  .t-b{font-size:15px}
+  .t-s{font-size:13px;color:var(--muted)}
+  .t-m{font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+  .box{background:var(--surface);border:1px solid var(--border);padding:14px 16px;font-size:12px;
+       font-family:var(--f-mono);color:var(--muted)}
+</style>
+</head>
+<body>
+<section><h2>Color</h2><div class="row">
+  <div class="sw"><i style="background:var(--bg)"></i><span>--bg</span></div>
+  <div class="sw"><i style="background:var(--surface)"></i><span>--surface</span></div>
+  <div class="sw"><i style="background:var(--ink)"></i><span>--ink</span></div>
+  <div class="sw"><i style="background:var(--muted)"></i><span>--muted</span></div>
+  <div class="sw"><i style="background:var(--border)"></i><span>--border</span></div>
+  <div class="sw"><i style="background:var(--accent)"></i><span>--accent</span></div>
+</div></section>
+
+<section><h2>Type scale</h2><div class="scale">
+  <div class="t-d">Display, 34 / 800</div>
+  <div class="t-1">Heading one, 24 / 700</div>
+  <div class="t-2">Heading two, 18 / 650</div>
+  <div class="t-b">Body, 15 / 400. Running text sits near 65 characters wide.</div>
+  <div class="t-s">Small, 13, muted.</div>
+  <div class="t-m">Mono label, 11, uppercase</div>
+</div></section>
+
+<section><h2>Radius hierarchy, concentric</h2><div class="row">
+  <div class="box" style="border-radius:var(--r-card)">card 16</div>
+  <div class="box" style="border-radius:var(--r-btn)">button 8</div>
+  <div class="box" style="border-radius:var(--r-input)">input 8</div>
+  <div class="box" style="border-radius:999px">pill</div>
+</div></section>
+</body>
+</html>

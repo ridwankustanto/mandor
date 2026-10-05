@@ -1,0 +1,37 @@
+<!-- @dsCard group="Components" name="Buttons and fields" subtitle="Every variant, size and state" height="300" -->
+<!-- @dsNotes
+Build the full set once, here, so nothing gets re-invented slightly differently later.
+
+- Every control shows **default, hover, disabled and focus**. A variant with no disabled
+  state is a variant that will be improvised at 1am.
+- Focus is never removed. `:focus-visible` gets a real ring.
+- Hover lifts or darkens. Opacity is not a hover state.
+-->
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Components</title><link rel="stylesheet" href="../standards/tokens.css"><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-sans);padding:24px;font-size:15px}
+h2{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 10px;
+   font-family:ui-monospace,Menlo,monospace}
+section{margin-bottom:24px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+button{font:inherit;font-size:14px;font-weight:600;padding:9px 16px;border-radius:8px;cursor:pointer;
+  border:1px solid var(--border);background:var(--surface);color:var(--ink)}
+button.primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+button.ghost{background:transparent;border-color:transparent}
+button:hover{filter:brightness(.96)}
+button[disabled]{opacity:.5;cursor:not-allowed}
+button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+input,select{font:inherit;font-size:14px;padding:9px 12px;border-radius:8px;border:1px solid var(--border);
+  background:var(--surface);color:var(--ink);min-width:190px}
+input:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.err{border-color:var(--danger)}
+.hint{font-size:12px;color:var(--muted);margin-top:4px}
+</style></head><body>
+<section><h2>Buttons</h2><div class="row">
+<button class="primary">Save changes</button><button>Cancel</button><button class="ghost">Ghost</button>
+<button class="primary" disabled>Disabled</button></div></section>
+<section><h2>Fields</h2><div class="row">
+<div><input placeholder="Default"><div class="hint">Helper text</div></div>
+<div><input class="err" value="not-an-email"><div class="hint" style="color:var(--danger)">Enter a full email address.</div></div>
+<select><option>Select an option</option></select></div></section>
+</body></html>

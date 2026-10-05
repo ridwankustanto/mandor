@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project Dashboard</title>
+<link rel="icon" href="data:,">
+<script>try{var t=localStorage.getItem('pm-dashboard-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="dashboard.css">
+<script src="vendor/sql-wasm.js"></script>
+<script src="vendor/marked.min.js"></script>
+</head>
+<body>
+<a class="sr d-skip" href="#main" data-skip>Skip to content</a>
+<nav class="d-nav" aria-label="Views">
+  <div class="d-nav__id">
+    <div class="d-nav__brand" id="brand">Loading</div>
+    <div class="d-nav__meta" id="brandMeta"></div>
+  </div>
+  <div class="d-nav__links" id="nav"></div>
+  <button class="d-btn d-btn--sm d-btn--ghost" id="themeBtn" type="button" aria-label="Switch theme">Theme: system</button>
+</nav>
+<div id="warnbar"></div>
+<main id="main" tabindex="-1"></main>
+<dialog id="dlg" class="d-dialog">
+  <button class="d-btn d-btn--sm d-dialog__close" data-close>Close</button>
+  <div id="dlgBody"></div>
+</dialog>
+<script src="dashboard.js"></script>
+</body>
+</html>

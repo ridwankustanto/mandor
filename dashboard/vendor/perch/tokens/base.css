@@ -1,0 +1,18 @@
+/* Minimal element resets. Components carry their own styling. */
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg-app);color:var(--text-primary);font-family:var(--font-sans);font-size:var(--fs-body);line-height:var(--lh-body);-webkit-font-smoothing:antialiased;text-wrap:pretty}
+h1,h2,h3,h4,p{margin:0}
+a{color:var(--text-brand);text-decoration:none}
+a:hover{color:var(--brand-500);text-decoration:underline}
+button{font:inherit}
+code,kbd,.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+::selection{background:var(--brand-200);color:var(--ink-900)}
+:focus-visible{outline:none;box-shadow:var(--shadow-focus)}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--ink-200);border-radius:var(--radius-pill);border:3px solid transparent;background-clip:content-box}
+::-webkit-scrollbar-track{background:transparent}
+@keyframes perch-spin{to{transform:rotate(360deg)}}
+@keyframes perch-pulse{0%,100%{opacity:1}50%{opacity:.35}}
+@keyframes perch-fade-up{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:var(--radius-pill);background:#fff;border:1.5px solid var(--ink-900);cursor:pointer}
+input[type=range]::-moz-range-thumb{width:16px;height:16px;border:1.5px solid var(--ink-900);border-radius:var(--radius-pill);background:#fff;cursor:pointer}

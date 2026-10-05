@@ -1,0 +1,18 @@
+/* The only file where raw values live. Prototypes link it, the code repo imports it.
+   /pm-design replaces every value below with this project's own. A component that
+   writes a hex instead of a var() is a bug, whoever wrote it. */
+:root{
+  --bg:#f7f5f2; --surface:#ffffff; --ink:#1b1a18; --muted:#6c6a66;
+  --border:#e3e0da; --accent:#1f6f5c; --danger:#b3261e; --on-accent:#ffffff;
+  --r-card:16px; --r-btn:8px; --r-input:8px;
+  --f-sans:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141414; --surface:#1c1c1b; --ink:#ececea; --muted:#9b9995;
+  --border:#2b2a28; --accent:#4fae94; --danger:#f2685f; --on-accent:#0f1a17;
+}}
+:root[data-theme="dark"]{
+  --bg:#141414; --surface:#1c1c1b; --ink:#ececea; --muted:#9b9995;
+  --border:#2b2a28; --accent:#4fae94; --danger:#f2685f; --on-accent:#0f1a17;
+}

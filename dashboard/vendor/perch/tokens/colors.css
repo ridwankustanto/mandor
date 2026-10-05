@@ -1,0 +1,40 @@
+:root{
+/* Ink: a warm aubergine-black for text and the chunky outlines. Softer than
+   pure black so it sits happily next to saturated pastels. */
+--ink-1000:#140F17;--ink-900:#241B28;--ink-800:#33283A;--ink-750:#3E3146;--ink-700:#4B3B54;
+--ink-600:#6B5875;--ink-500:#7A6883;--ink-400:#AFA1B6;--ink-300:#CCC1D1;--ink-200:#E2D9E6;
+--ink-100:#EFE8F1;--ink-050:#F8F4F9;--ink-000:#FFFFFF;
+
+/* Peach: the cherry on top. Small accent blocks and washes, never the page. */
+--cream-050:#FFFDFA;--cream-100:#FFF1E7;--cream-200:#FFE2D1;--cream-300:#FFCDB2;--cream-400:#FBB68F;
+
+/* Bubblegum (brand): the reference's hero pink, at full candy strength.
+   300 is the flat block colour, 400 fills actions. */
+--brand-050:#FFEFF9;--brand-100:#FFDCF2;--brand-200:#FFBDE7;--brand-300:#FF9BD9;
+--brand-400:#FB7BC9;--brand-500:#EF57B2;--brand-600:#CE3492;--brand-700:#9E2270;--brand-800:#6E164E;
+
+/* Butter: the reference's yellow. Big flat blocks and highlights, never body text. */
+--butter-050:#FFFCEC;--butter-100:#FFF8D8;--butter-200:#FFF0AC;--butter-300:#FFE470;--butter-400:#FCD238;--butter-500:#E3B400;
+
+/* Mint and sky: the supporting candy pastels. */
+--mint-100:#DDFBEB;--mint-200:#BAF5D6;--mint-300:#92EBBD;--mint-500:#31B075;
+--sky-100:#E0F1FF;--sky-200:#BFE3FF;--sky-300:#98D2FB;--sky-500:#3792D4;
+
+/* Status: reserved. Pastel tint + saturated core, so they read on cream and on dark. */
+--live-100:#D6FBE7;--live-400:#34C782;--live-500:#12A25E;--live-600:#0B7B46;
+--rec-100:#FFDEE2;--rec-400:#FF5B6E;--rec-500:#EE3049;--rec-600:#C01F35;
+--warn-100:#FFEFC7;--warn-400:#F7AC1E;--warn-500:#CE7C00;--warn-600:#9E5D00;
+--offline-100:#EDE7F0;--offline-400:#AFA1B6;--offline-500:#8E7C97;
+--info-100:#DDEEFF;--info-400:#48A2E8;--info-500:#2481CE;--info-600:#17609C;
+
+/* Video: an empty feed is a pale slate surface, not a black hole. Real frames
+   are dropped in via `poster`; the overlay chrome is ink on a white scrim so it
+   stays legible either way. */
+--video-bed-top:#DFF0FF;--video-bed-bottom:#BEE0FA;
+--video-bed-offline:#EDE7F0;
+--video-scrim-strong:rgba(255,255,255,.86);
+--video-scrim:rgba(255,255,255,.72);
+--video-scrim-soft:rgba(255,255,255,.4);
+--video-gradient-top:linear-gradient(180deg,rgba(255,255,255,.82) 0%,rgba(255,255,255,0) 100%);/* @kind color */
+--video-gradient-bottom:linear-gradient(0deg,rgba(255,255,255,.86) 0%,rgba(255,255,255,0) 100%);/* @kind color */
+}

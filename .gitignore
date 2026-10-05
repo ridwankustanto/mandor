@@ -1,0 +1,14 @@
+.DS_Store
+.playwright-mcp/
+
+# Secrets never get committed, whatever the stack turns out to be.
+.env
+.env.*
+!.env.example
+
+# Dependencies and build output. Add your stack's own as you pick it.
+node_modules/
+
+# project.db is NOT ignored. It is the source of truth for project state and
+# belongs in git, so history and status travel with the repo. The template ships
+# without one because `./pm init` creates it.

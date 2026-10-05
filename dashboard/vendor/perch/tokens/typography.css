@@ -1,0 +1,57 @@
+:root{
+--font-sans:"Archivo","Archivo Fallback",Helvetica,sans-serif;
+--font-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+--fw-regular:400;/* @kind font */
+--fw-medium:500;/* @kind font */
+--fw-semibold:600;/* @kind font */
+--fw-bold:700;/* @kind font */
+
+/* Display: marketing headlines and empty-state statements only. */
+--fs-display-xl:64px;
+--lh-display-xl:1.02;/* @kind font */
+--ls-display-xl:-.03em;/* @kind font */
+--fs-display-l:48px;
+--lh-display-l:1.04;/* @kind font */
+--ls-display-l:-.025em;/* @kind font */
+--fs-display-m:36px;
+--lh-display-m:1.08;/* @kind font */
+--ls-display-m:-.02em;/* @kind font */
+
+/* Headings: in-product. */
+--fs-h1:26px;
+--lh-h1:1.15;/* @kind font */
+--ls-h1:-.015em;/* @kind font */
+--fs-h2:20px;
+--lh-h2:1.2;/* @kind font */
+--ls-h2:-.01em;/* @kind font */
+--fs-h3:16px;
+--lh-h3:1.3;/* @kind font */
+--ls-h3:-.005em;/* @kind font */
+
+/* Body + UI */
+--fs-body-l:15px;
+--lh-body-l:1.55;/* @kind font */
+--fs-body:14px;
+--lh-body:1.5;/* @kind font */
+--fs-body-s:13px;
+--lh-body-s:1.45;/* @kind font */
+--fs-caption:12px;
+--lh-caption:1.35;/* @kind font */
+--fs-micro:11px;
+--lh-micro:1.2;/* @kind font */
+--ls-micro:.02em;/* @kind font */
+
+/* Label: uppercase eyebrows, table headers, sidebar section titles */
+--fs-label:11px;
+--lh-label:1.1;/* @kind font */
+--ls-label:.09em;/* @kind font */
+--fw-label:600;/* @kind font */
+
+/* Mono: codes, IDs, numbers that change */
+--fs-mono-l:14px;
+--fs-mono:12px;
+--fs-mono-s:11px;
+--ls-mono:.01em;/* @kind font */
+--fvs-tabular:"tnum" 1,"lnum" 1;/* @kind font */
+}

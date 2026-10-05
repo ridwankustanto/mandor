@@ -1,0 +1,13 @@
+:root{
+/* 2px base, 4px rhythm. Balanced density: 12px is the default control padding. */
+--space-0:0px;--space-025:2px;--space-05:4px;--space-075:6px;--space-1:8px;--space-125:10px;
+--space-15:12px;--space-2:16px;--space-25:20px;--space-3:24px;--space-4:32px;--space-5:40px;
+--space-6:48px;--space-8:64px;--space-10:80px;--space-12:96px;
+
+/* Fixed chrome */
+--size-topbar:56px;--size-sidebar:236px;--size-sidebar-collapsed:60px;--size-rail:44px;
+--size-control-sm:28px;--size-control-md:34px;--size-control-lg:42px;
+--size-icon-sm:14px;--size-icon-md:16px;--size-icon-lg:20px;
+--grid-gutter:12px;
+--page-pad:20px;
+}

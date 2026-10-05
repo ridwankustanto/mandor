@@ -1,0 +1,14 @@
+:root{
+/* The reference's signature: a hard offset shadow, no blur, in ink. Used on
+   primary actions and the cards that carry the brand. Everything else is flat. */
+--shadow-offset:3px 3px 0 var(--ink-900);
+--shadow-offset-sm:2px 2px 0 var(--ink-900);
+--shadow-none:none;
+--shadow-sm:0 1px 2px rgba(26,24,27,.08);
+--shadow-md:0 6px 16px rgba(26,24,27,.1);
+--shadow-lg:0 18px 44px rgba(26,24,27,.16);
+--shadow-focus:0 0 0 2px var(--bg-app),0 0 0 4px var(--brand-500);
+--shadow-focus-onvideo:0 0 0 2px var(--cream-050),0 0 0 4px var(--brand-500);
+--glow-live:0 0 0 1px var(--live-500),0 0 12px rgba(31,157,91,.3);
+--glow-rec:0 0 0 1px var(--rec-500),0 0 12px rgba(222,59,59,.3);
+}

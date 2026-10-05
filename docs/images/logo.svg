@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 136 136" width="136" height="136" role="img" aria-labelledby="t">
+  <title id="t">Mandor</title>
+  <!-- Mandor: an M whose middle drops into a plumb line. The foreman checks the work is true. -->
+  <rect x="14" y="14" width="114" height="114" rx="28" fill="#140F17"/>
+  <rect x="6" y="6" width="114" height="114" rx="28" fill="#FFE470" stroke="#140F17" stroke-width="5"/>
+  <path d="M33 92V35L63 65L93 35V92" fill="none" stroke="#140F17" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M63 65V78" stroke="#140F17" stroke-width="4" stroke-linecap="round"/>
+  <path d="M55 78H71V87L63 104L55 87Z" fill="#EF57B2" stroke="#140F17" stroke-width="4" stroke-linejoin="round"/>
+</svg>
