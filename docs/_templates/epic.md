@@ -49,9 +49,24 @@ The database is the source of truth for status. This table is for the reader.
 |---|---|---|---|
 | SCR000 | <name> | /<path> | none |
 
+## Assumptions
+
+Every default chosen instead of asking. The user reads them here and overturns any.
+
+- <assumption, and what changes if it is wrong>
+
+## Prove it end to end
+
+Filled in `/pm-build` with the plan. The steps that show this epic works, run in
+`/pm-edit` and `/pm-ship` instead of being made up again.
+
+1. <setup>
+2. <command or user action>
+3. <what you should see>
+
 ## Open questions
 
-Ask these with the form UI. Do not answer them yourself.
+At most five per epic, asked one at a time with the form UI. Do not answer them yourself.
 
 - [ ] <question> <who decides>
 

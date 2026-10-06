@@ -100,6 +100,16 @@ Per screen, in this order.
 user context, required states (already inventoried in `/pm-flows`, do not re-derive them),
 visual constraints, what must not appear, out of scope.
 
+Then test the brief before you draw from it. A vague brief costs five vague variants.
+
+- [ ] Every state from the inventory is in it, including empty, loading and error
+- [ ] Every word like "prominent", "clean" or "simple" is turned into something you can see
+- [ ] What happens on the smallest screen is stated
+- [ ] What must not appear is concrete, not a mood
+- [ ] Keyboard and screen reader behaviour is stated for anything interactive
+
+Fix what fails before Diverge.
+
 **Diverge.** Five variants of the screen in one HTML file, labelled V1 to V5, real content
 throughout, never lorem. Vary the actual approach, not the accent colour.
 

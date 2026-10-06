@@ -124,7 +124,7 @@ Each phase has a skill. Run the skill, do not improvise the procedure.
 | `/pm-spec` | spec | epic and story breakdown, and the M0 cut line, approved |
 | `/pm-flows` | flows | flows and state inventory approved per epic |
 | `/pm-design` | design | design system approved, then each screen approved |
-| `/pm-build` | build | milestone built |
+| `/pm-build` | build | each epic planned and approved, then the milestone built |
 | `/pm-edit` | edit | every delivered epic played as a user, fixed, approved by the editor |
 | `/pm-ship` | ship | deployment recorded |
 | `/pm-feedback` | learn | every item triaged |

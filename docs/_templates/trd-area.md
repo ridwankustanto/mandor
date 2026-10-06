@@ -29,17 +29,19 @@ bugs is unclear authority over state.
 
 ## Data model
 
-| Table | Columns (sketch) | Notes |
-|---|---|---|
-| | | |
+| Table | Columns (sketch) | Rules and state changes | From |
+|---|---|---|---|
+| | | | STORY000 |
 
 Deliberately not stored: <what is derived, cached, or intentionally absent, and why>
 
 ## Interfaces
 
-| Endpoint or message | Direction | Purpose | Auth |
-|---|---|---|---|
-| | | | |
+Agreed before code, so tasks can build against both sides at once.
+
+| Endpoint or message | Direction | Purpose | Auth | From |
+|---|---|---|---|---|
+| | | | | STORY000 |
 
 ## Business rules
 

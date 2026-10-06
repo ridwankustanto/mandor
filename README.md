@@ -142,7 +142,7 @@ pass. `./pm mode full` upgrades later.
 | `/pm-spec` | You approve the epic and story breakdown, and the M0 cut line |
 | `/pm-flows` | Flows and every screen state are inventoried, per epic |
 | `/pm-design` | Design system approved, then each screen approved on its own |
-| `/pm-build` | Milestone tasks done and reviewed |
+| `/pm-build` | Each epic's plan approved, then milestone tasks done and reviewed |
 | `/pm-edit` | Every delivered epic played as a user, fixed, approved by a named editor |
 | `/pm-ship` | Checks green, deployed, smoke tested |
 | `/pm-feedback` | Every feedback item triaged into somewhere real |
@@ -223,7 +223,8 @@ are in `docs/_templates/`.
 ```
 
 `./pm check` is the one that matters. It fails on a work item with no parent, an epic in
-no milestone, an epic nobody broke down, a parent closed above an open child, a story
+no milestone, an epic nobody broke down, a story in an active milestone that no task
+builds, work in progress under an epic whose plan nobody approved, a parent closed above an open child, a story
 marked verified with no passing test covering it, a screen whose approval went stale, a
 delivered epic nobody edited once the project is past edit, an unfilled point of view, or
 an open gate on the current phase. Nothing is done until it passes.

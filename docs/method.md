@@ -23,7 +23,7 @@ at any point without pretending the earlier phases never happened.
 | spec | `/pm-spec` | What epics and stories, in what order | You approve the breakdown and the M0 cut line |
 | flows | `/pm-flows` | How it behaves, including every state | Flows and state inventory reviewed, per epic |
 | design | `/pm-design` | What it looks like | Design system approved, then each screen approved |
-| build | `/pm-build` | Does it work | Milestone tasks done and reviewed |
+| build | `/pm-build` | Does it work | Each epic's plan approved, then milestone tasks done and reviewed |
 | edit | `/pm-edit` | Is it good, or only done | Every delivered epic played as a user, fixed, approved by a named editor |
 | ship | `/pm-ship` | Is it safe to release | Checks green, deployed, smoke tested |
 | learn | `/pm-feedback` | What did reality say | Every feedback item triaged |

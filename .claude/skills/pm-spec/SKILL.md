@@ -55,7 +55,32 @@ scope creep gets caught, and `./pm check` knows not to expect tasks under them.
 
 Copy `docs/_templates/story.md` per story. Tasks come in `/pm-build`, not here.
 
-## 4. Read the intent back into the tree
+Every `functional` story gets an independent test: one line saying how it can be checked
+on its own and what that alone delivers. If a story only makes sense once two others ship,
+it is not a story yet, merge or reslice it. Acceptance lines are Given, When, Then.
+
+Stories say what and why, never how. No framework, library, table or endpoint names. Those
+belong to the plan in `/pm-build`, and a spec that names them has already made a decision
+nobody approved.
+
+## 4. Clarify, with a budget
+
+Scan each epic and its stories against these categories, and mark each clear, partial or
+missing: scope and behaviour, data and entities, interaction flow, integrations, edge cases
+and failure, constraints and tradeoffs, terminology, what done looks like, leftover
+placeholders.
+
+Then ask, **at most five questions per epic, one at a time**, with `AskUserQuestion`.
+Highest impact first: scope, then security and privacy, then experience, then technical.
+Put your recommended option first and say in one line why the answer matters. Write each
+answer into the doc as soon as it comes back, not at the end.
+
+Everything else gets a sensible default from you, written under **Assumptions** in the
+epic doc, so the user can read every guess in one place and overturn it. A question that
+did not make the cut is an assumption, not a silent gap. An open question that survives
+the budget stays under Open questions and blocks the gate.
+
+## 5. Read the intent back into the tree
 
 Every objective, success signal and non-goal captured in `/pm-new`, and every finding from
 `/pm-discover` that changed scope, has to land somewhere in this tree. Walk them one by
@@ -64,11 +89,28 @@ question for the user, not a judgement call for you.
 
 Do not quietly invent an epic to absorb a stray objective. Ask with a form.
 
-## 5. Fill the architecture helicopter view
+## 6. Fill the architecture helicopter view
 
 `docs/engineering/architecture.md`: the shape of the system, who owns which state, and the
 areas that will each get a TRD file later. Stay short. Detail belongs in
 `docs/engineering/trd/<area>.md`.
+
+## 7. Grade it before you ask for approval
+
+Before you show the tree, grade every epic doc and its stories against this list. Rewrite
+what fails and grade again, at most three rounds. Whatever still fails goes to the user
+with the gate, named, not buried.
+
+- [ ] No implementation details: no framework, library, table or endpoint names
+- [ ] Every acceptance line is observable and testable, no adjectives
+- [ ] Every functional story has an independent test
+- [ ] Edge cases are named, including first run, failure halfway, and two at once
+- [ ] Scope says what is out, not just what is in
+- [ ] Every guess is written under Assumptions
+- [ ] No open question left, or the ones left are the user's call and listed
+
+Put the result in the gate note, for example "7/7 on all epics" or "EPIC003 fails edge
+cases, accepted because ...".
 
 ## Close the gate
 

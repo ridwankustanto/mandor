@@ -625,12 +625,29 @@ def problems_now():
 
     cur = q("SELECT current_phase FROM project").fetchone()["current_phase"]
     ph = phases(conn)
+    if cur in ph and ph.index(cur) >= ph.index("build"):
+        # coverage: a story in an active milestone that no task builds is a silent gap
+        for w in q(TREE_CTE + "SELECT w.code, w.title FROM tree JOIN work_item w ON w.code = tree.code "
+                   "JOIN work_item e ON e.code = tree.root "
+                   "JOIN milestone m ON m.code = e.milestone AND m.status = 'active' "
+                   "WHERE w.level = 1 AND w.status != 'cut' AND w.priority != 'wont' "
+                   "AND w.code NOT IN (SELECT parent FROM work_item WHERE parent IS NOT NULL)"):
+            p.append(f"story {w['code']} ({w['title'][:40]}) has no tasks, nothing builds it")
+    if "spec" in ph and cur in ph and ph.index(cur) >= ph.index("build"):
+        # full mode: no code is written under an epic whose plan nobody approved
+        for w in q(TREE_CTE + "SELECT DISTINCT tree.root AS code FROM tree "
+                   "JOIN work_item w ON w.code = tree.code "
+                   "WHERE w.level >= 2 AND w.status IN ('in_progress','review') "
+                   "AND NOT EXISTS (SELECT 1 FROM gate g WHERE g.phase = 'plan' "
+                   " AND g.subject = tree.root AND g.status IN ('approved','skipped'))"):
+            p.append(f"epic {w['code']} has work in progress but no approved plan. "
+                     f"Plan it first, see /pm-build step 1")
     if cur in ph and ph.index(cur) > ph.index("edit"):
         # built is not done, done is not good: every delivered epic gets an edit pass
         for w in q(f"SELECT code, title FROM work_item e WHERE level = 0 AND status != 'cut' "
                    f"AND EXISTS (SELECT 1 FROM work_item s WHERE s.parent = e.code) "
                    f"AND NOT EXISTS (SELECT 1 FROM work_item s WHERE s.parent = e.code "
-                   f" AND s.status NOT IN {SETTLED}) "
+                   f" AND s.status NOT IN {SETTLED} AND s.priority != 'wont') "
                    f"AND NOT EXISTS (SELECT 1 FROM gate g WHERE g.phase = 'edit' "
                    f" AND g.subject = e.code AND g.status IN ('approved','skipped'))"):
             p.append(f"epic {w['code']} ({w['title'][:40]}) is delivered but nobody edited it. "
@@ -694,7 +711,7 @@ NEXT_WHY = {
     "spec": "break intent into epics and stories under a milestone",
     "flows": "map behaviour and every screen state, per epic",
     "design": "design system first, then each screen, one approval at a time",
-    "build": "break approved stories into tasks and implement them",
+    "build": "plan each epic, then break its stories into tasks and implement them",
     "edit": "play every delivered epic as a user, then fix until it is good, not just done",
     "ship": "run the checks for real, then record the deployment",
     "learn": "triage every piece of feedback into somewhere real",
@@ -970,6 +987,23 @@ def demo(_argv=()):
     with contextlib.redirect_stdout(buf):
         cmd_context(["SUB001"])
     assert "TASK001" in buf.getvalue() and "EPIC001" in buf.getvalue()
+
+    # from build on, a story nothing builds is a gap, a non-goal is not
+    conn = db()
+    conn.execute("UPDATE project SET current_phase = 'build'")
+    conn.commit()
+    COMMANDS["story"](["title=A user can search notes", "parent=EPIC001"])
+    COMMANDS["story"](["title=Never syncs to a server", "parent=EPIC001",
+                       "kind=constraint", "priority=wont"])
+    gaps = [x for x in problems_now() if "nothing builds it" in x]
+    assert len(gaps) == 1 and "STORY002" in gaps[0], gaps
+    cmd_set(["STORY002", "status=cut"])
+
+    # full mode: work in progress under an epic needs an approved plan
+    assert any("no approved plan" in x for x in problems_now())
+    cmd_gate(["open", "plan", "EPIC001"])
+    cmd_gate(["approve", "plan", "--subject", "EPIC001", "one table, local first"])
+    assert not any("no approved plan" in x for x in problems_now())
 
     # lite drops the planning phases, a planning phase lands on build
     cmd_mode(["lite"])

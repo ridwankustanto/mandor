@@ -17,6 +17,9 @@ no checkbox.
 ./pm check                 # invariants: orphans, stale screens, open gates
 ```
 
+Then each epic's **Prove it end to end** steps, exactly as written in its doc. A step that
+no longer matches the product is a doc bug, fix the doc in the same pass.
+
 Then the project's own test commands. Record each run:
 
 ```bash

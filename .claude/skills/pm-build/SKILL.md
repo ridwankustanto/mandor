@@ -22,18 +22,48 @@ Never scaffold a stack the user has not chosen.
 The code repo imports `standards/tokens.css`, copied or referenced by path, whichever
 the stack prefers. Tokens never get retyped by hand.
 
-## 1. Break stories into tasks
+## 1. Plan the epic before any task starts
 
 **Lite mode** has no spec phase, so there is no tree yet. Make a thin one now: one
 milestone, one epic per thing the user will notice, two to five stories under each.
-Five minutes, not a phase. The edit pass needs epics to walk through.
+Five minutes, not a phase. The edit pass needs epics to walk through. Lite skips the plan
+gate below, but still fills the data model and interfaces before writing code.
 
-**Full mode:** only stories whose epic has passed its design gate. Check first:
+**Full mode:** only epics that passed their design gate. Check first:
 
 ```bash
 ./pm tree
 ./pm gate list
 ```
+
+The spec said what and why. The plan says how, once per epic, before code. It lands in
+the epic's area TRD, `docs/engineering/trd/<area>.md`, not in a new document.
+
+1. **Check the standards first.** Read `standards/guardrails.md` and `point-of-view.md`.
+   Name any part of this epic that would break one, and either change the approach or
+   write down why the exception is worth it.
+2. **Data model from the stories.** Entities, fields, validation rules and state changes,
+   each row naming the story that needs it. A table no story asks for does not get built.
+3. **Interfaces.** Every endpoint, message, command or UI to backend contract this epic
+   adds, agreed now. With both sides fixed, tasks on either side can run at once.
+4. **Unknowns become ADRs.** Anything the plan cannot decide yet (a library, a limit, a
+   storage choice) is researched now and written as an ADR, decision, why and
+   alternatives, before code depends on it.
+5. **Prove it end to end.** Fill that section of the epic doc: setup, the command or user
+   action, what you should see. `/pm-edit` and `/pm-ship` run these steps.
+6. **Check the standards again** against the finished plan. Designing the data model is
+   where shortcuts sneak in.
+
+Show the plan, then:
+
+```bash
+./pm gate open plan EPIC001
+./pm gate approve plan --subject EPIC001 "<the one decision that shapes it>"
+```
+
+`./pm check` fails while any task under an epic is in progress without an approved plan.
+
+## 2. Break stories into tasks
 
 Then break each story down. A task is a unit of build work under exactly one story.
 
@@ -54,8 +84,10 @@ Rules for a good breakdown:
 - Infra and test tasks exist from the start. They are not a phase at the end.
 - `blocked_by` gets filled when it is real, so the board can show the critical path.
 - A `constraint` story with `priority=wont` gets no tasks. It is a non-goal.
+- Every other story in an active milestone gets at least one task. `./pm check` names the
+  ones nothing builds.
 
-## 2. Work
+## 3. Work
 
 ```bash
 ./pm set TASK004 status=in_progress
@@ -77,7 +109,7 @@ build a second Button. Every color, size and radius comes from `tokens.css`.
 Non-trivial logic leaves one runnable check behind. Not a suite, one check that fails if
 the logic breaks.
 
-## 3. Commit with the work item code
+## 4. Commit with the work item code
 
 Put the code in the message and the post-commit hook does the rest: it stamps the sha and
 moves the item to `review`.
@@ -88,7 +120,7 @@ feat: render the inbox empty state TASK004
 
 That replaces "remember to update the board". Instructions get skipped, hooks do not.
 
-## 4. Close upward, never downward
+## 5. Close upward, never downward
 
 A parent cannot be closed while a child is open. `./pm check` fails on it, and that is
 deliberate: it is the most common way a board starts lying.
@@ -102,7 +134,7 @@ deliberate: it is the most common way a board starts lying.
 `done` means built. `verified` is a separate claim, it belongs to `/pm-ship`, and it needs
 a passing test run naming the story. Do not skip ahead to it, `./pm check` will catch it.
 
-## 5. Decisions made while building
+## 6. Decisions made while building
 
 Implementation forces choices that design never surfaced. When one is load bearing, write
 an ADR at the moment it is made, not at the end of the week:

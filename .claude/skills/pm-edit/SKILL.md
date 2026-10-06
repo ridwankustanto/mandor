@@ -21,7 +21,8 @@ One epic at a time. Run the real thing, not the prototype, not the code.
 ./pm context EPIC001
 ```
 
-Walk every story in the order a user meets them, with the real data shape, at 375px and
+Start with the epic's **Prove it end to end** steps. If they fail, stop, that is the
+first fix. Then walk every story in the order a user meets them, with the real data shape, at 375px and
 at desktop, in both themes, keyboard only for one pass. Then the unhappy paths: empty,
 slow network, bad input, the error a real person will hit first.
 

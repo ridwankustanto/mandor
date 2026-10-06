@@ -18,12 +18,20 @@ Parent: [EPIC000](../epics/EPIC000-<slug>.md)
 One sentence that is either true or false about the shipped product. This is the thing a
 test will speak about when this story reaches `verified`.
 
+## Independent test
+
+How this story can be checked on its own, and what that alone delivers. If it only makes
+sense once another story ships, reslice it.
+
+<check it by doing X, and it delivers Y>
+
 ## Acceptance
 
-What has to hold for this to be done. Each line observable, no adjectives.
+What has to hold for this to be done. Each line observable, no adjectives, no
+implementation names.
 
-- [ ] <observable condition>
-- [ ] <observable condition>
+- [ ] **Given** <state>, **when** <action>, **then** <observable outcome>
+- [ ] **Given** <state>, **when** <action>, **then** <observable outcome>
 - [ ] Every state in the screen inventory is implemented, not just the happy path
 
 ## Kind
